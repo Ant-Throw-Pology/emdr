@@ -1,34 +1,25 @@
 import fs from "fs/promises";
 import path from "path";
 
+import { build } from "./build";
+
 const PROJECT_ROOT = path.resolve(import.meta.dir, "..");
 const BUILD_DIR = path.resolve(PROJECT_ROOT, "dist");
 const SRC_DIR = path.resolve(PROJECT_ROOT, "src");
 
-await fs.rm(BUILD_DIR, { recursive: true, force: true });
-await fs.mkdir(BUILD_DIR);
-
 async function runBuild() {
-  // bun build src/index.tsx --target=browser --sourcemap=linked --outdir=dist --asset-naming='[name].[ext]'
-  await Bun.build({
-    entrypoints: [path.resolve(import.meta.dir, "index.tsx")],
-    target: "browser",
-    sourcemap: "linked",
-    outdir: BUILD_DIR,
-    naming: { asset: "[name].[ext]" },
-  });
-  console.log("Built successfully");
+  try {
+    await build({ minify: false, production: false });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 await runBuild();
 
 (async () => {
   for await (const event of fs.watch(SRC_DIR, { recursive: true })) {
-    try {
-      await runBuild();
-    } catch (e) {
-      console.log(e);
-    }
+    await runBuild();
   }
 })();
 

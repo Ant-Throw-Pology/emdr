@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun src/dev.ts",
-    "build": "bun build ./src/index.tsx --outdir=dist --sourcemap --target=browser --minify --asset-naming='[name].[ext]' --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "dev": "bun scripts/dev.ts",
+    "build": "bun scripts/build.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.sw.json",
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/w3c-web-hid": "^1.0.7",
-    "prettier": "^3.7.4"
+    "prettier": "^3.7.4",
+    "typescript": "^7.0.2"
   }
 }

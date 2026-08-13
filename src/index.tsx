@@ -17,6 +17,21 @@ import { App } from "./components/app";
 import "./index.css";
 import "./index.html" with { type: "file" };
 import "./icon.svg" with { type: "file" };
+import "./icon-maskable.svg" with { type: "file" };
+import "./icon-192.png" with { type: "file" };
+import "./icon-512.png" with { type: "file" };
+import "./icon-maskable-512.png" with { type: "file" };
+import "./manifest.webmanifest" with { type: "file" };
+
+if (
+  !["localhost", "127.0.0.1", "[::1]", "::1"].includes(location.hostname) &&
+  "serviceWorker" in navigator
+) {
+  navigator.serviceWorker.register("./sw.js", {
+    scope: "./",
+    updateViaCache: "none",
+  });
+}
 
 window.addEventListener("error", (event) => {
   alert(event.message);

@@ -21,3 +21,19 @@ declare module "*.wav" {
   const path: `${string}.wav`;
   export = path;
 }
+
+declare module "*.png" {
+  /**
+   * A path to the PNG file
+   */
+  const path: `${string}.png`;
+  export = path;
+}
+
+declare module "*.webmanifest" {
+  /**
+   * A path to the web manifest file
+   */
+  const path: `${string}.webmanifest`;
+  export = path;
+}
