@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun scripts/dev.ts",
     "build": "bun scripts/build.ts",
+    "icons": "bun scripts/render-icons.ts",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.sw.json",
     "start": "NODE_ENV=production bun src/index.ts"
   },
@@ -20,6 +21,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/bun": "^1.3.5",
     "@types/howler": "^2.2.12",
     "@types/randomcolor": "^0.5.9",
