@@ -44,7 +44,7 @@ self.addEventListener("fetch", (event) => {
           if (response.ok) {
             const copy = response.clone();
             caches.open(CACHE_NAME).then((cache) => {
-              cache.put("./index.html", copy);
+              cache.put("./index.html", copy.clone());
               cache.put("./", copy.clone());
             });
           }
