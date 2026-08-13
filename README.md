@@ -14,8 +14,8 @@ To start a development server:
 bun run dev
 ```
 
-To run for production:
+To build for production:
 
 ```bash
-bun run start
+bun run build
 ```

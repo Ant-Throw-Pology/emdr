@@ -7,8 +7,7 @@
     "dev": "bun scripts/dev.ts",
     "build": "bun scripts/build.ts",
     "icons": "bun scripts/render-icons.ts",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.sw.json",
-    "start": "NODE_ENV=production bun src/index.ts"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.sw.json"
   },
   "dependencies": {
     "howler": "^2.2.4",
